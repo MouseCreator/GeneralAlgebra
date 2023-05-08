@@ -40,7 +40,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FiniteGroup.h">
-          <Filter>Header Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RPolynomial.h">
       <Filter>Header Files</Filter>
@@ -65,16 +65,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FiniteField.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="tests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RPolynomialTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CalculationOfSquareRoot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FPolynomialTest.cpp">
@@ -83,5 +77,33 @@
     <ClCompile Include="PolynomialElementTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SpecialTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Additional operators test.txt" />
+    <Text Include="..\Additional operators.txt" />
+    <Text Include="..\Carmichel.txt" />
+    <Text Include="..\Division Test for PositiveNumber.txt" />
+    <Text Include="..\Division Test for SignedNumber.txt" />
+    <Text Include="..\Euler For Prime Values.txt" />
+    <Text Include="..\Euler.txt" />
+    <Text Include="..\Exponent Test.txt" />
+    <Text Include="..\Finite numbers Tests.txt" />
+    <Text Include="..\Miller-Rabin Primality Test.txt" />
+    <Text Include="..\Modular Power.txt" />
+    <Text Include="..\Naive Factorization.txt" />
+    <Text Include="..\Pollard%27s Rho Factorization.txt" />
+    <Text Include="..\Positive numbers Test.txt" />
+    <Text Include="..\Remainder Test for Positive Numbers.txt" />
+    <Text Include="..\Remainder Test for Signed Numbers.txt" />
+    <Text Include="..\Signed numbers Test.txt" />
+    <Text Include="..\Test binary form.txt" />
+    <Text Include="..\Test Integer Constuctors.txt" />
+    <Text Include="..\Test zero.txt" />
+    <Text Include="..\TestNonQuadraticPositive.txt" />
+    <Text Include="..\TestQuadraticResidue1.txt" />
+    <Text Include="..\TestQuadraticResidue2.txt" />
   </ItemGroup>
 </Project>

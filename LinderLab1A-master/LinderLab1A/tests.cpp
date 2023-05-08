@@ -308,7 +308,6 @@ TEST_CASE("Exponent") {
 	power = PositiveNumber(powerStr);
 	result = exp.montgomeryExponentiation(base, power);
 
-
 	CHECK(result.toString() == "8");
 
 	getline(f, baseStr);
@@ -354,6 +353,11 @@ TEST_CASE("Exponent") {
 	power = PositiveNumber("100");
 	res = exp.montgomeryExponentiation(base, power);
 	CHECK(res.toString() == "0");
+
+	base = FiniteNumber("x7 4");
+	power = PositiveNumber("10");
+	expected = "4";
+	CHECK(exp.montgomeryExponentiation(base, power).toString() == expected);
 
 	f.close();
 

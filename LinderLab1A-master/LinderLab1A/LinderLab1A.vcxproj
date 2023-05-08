@@ -146,11 +146,10 @@
     <ClInclude Include="SignedNumber.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CalculationOfSquareRoot.cpp" />
-    <ClCompile Include="FiniteField.cpp" />
     <ClCompile Include="FPolynomialTest.cpp" />
     <ClCompile Include="PolynomialElementTest.cpp" />
     <ClCompile Include="RPolynomialTest.cpp" />
+    <ClCompile Include="SpecialTest.cpp" />
     <ClCompile Include="tests.cpp" />
   </ItemGroup>
   <ItemGroup>

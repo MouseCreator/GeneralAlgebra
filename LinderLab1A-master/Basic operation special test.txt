@@ -1,0 +1,5 @@
+modulo 17
++, 2, 4 => 6, AUTO, PRINT
+-, 2, 4 => 15, AUTO, PRINT
+*, 6, 5 => 13, AUTO, PRINT
+/, 22, 11 => 2, AUTO, PRINT
