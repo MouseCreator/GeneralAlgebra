@@ -35,7 +35,7 @@ public:
 // 
 //Parameters are numbers that will be passed to number constructors
 //Expected types of results:
-//	AUTO : check result with some automatized case; in this case using classic algorithm to test Montgomery exponentiation
+//	AUTO : check result with some automated test; For instance, use classic algorithm of exponentiation to test Montgomery exponentiation
 //	PRINT : prints result of the operation in console
 //	number : check result with value given by user
 // 
