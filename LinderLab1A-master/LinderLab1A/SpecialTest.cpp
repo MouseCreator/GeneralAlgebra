@@ -47,6 +47,8 @@ protected:
 	std::vector<TestData> tests;
 	FiniteField field;
 	std::string sourceFile;
+	bool noPrint = true;
+
 	void processResult(TestData testData, std::string result) {
 
 		for (std::size_t i = 0; i < testData.resultSize(); i++) {
@@ -55,7 +57,8 @@ protected:
 				autoCheck(result, testData);
 			}
 			else if (expected == "PRINT") {
-				print(testData, result);
+				if (!noPrint)
+					print(testData, result);
 			}
 			else {
 				CHECK(result == expected);
@@ -143,6 +146,11 @@ public:
 	TestExecutor() {
 
 	}
+
+	void setPrintable(bool isPrintable) {
+		this->noPrint = !isPrintable;
+	}
+
 	void readTestData() {
 		std::ifstream f;
 		f.open(sourceFile);
@@ -256,6 +264,44 @@ public:
 	}
 };
 
+class InverseNumberTestExecutor : TestExecutor {
+private:
+	void autoCheck(std::string expected, TestData testData) {
+		FiniteNumber base = FiniteNumber(testData.get(0), this->field.getP());
+		FiniteNumber a = base.inverse();
+		FiniteNumber b = a.inverse();
+		CHECK(base.toString() == b.toString());
+	}
+	void print(TestData testData, std::string result) {
+		std::cout << "Inverse of " << testData.get(0) << " is " << result << " (mod " << field.getP().toString() << ")" << std::endl;
+	}
+public:
+	InverseNumberTestExecutor() : TestExecutor() {
+		this->sourceFile = "../Inverse special test.txt";
+		field.setP(PositiveNumber("97"));
+	}
+	void readTestData() {
+		TestExecutor::readTestData();
+	}
+	void executeAll() {
+		TestExecutor::executeAll();
+	}
+	std::size_t getNumberOfTests() {
+		return TestExecutor::getNumberOfTests();
+	}
+	void execute(std::size_t testNumber) {
+		TestExecutor::execute(testNumber);
+	}
+	void execute(TestData testData) {
+		if (testData.size() != 1) {
+			return;
+		}
+		FiniteNumber operand1 = FiniteNumber(testData.get(0), TestExecutor::field.getP());
+		FiniteNumber result = operand1.inverse();
+		return processResult(testData, result.toString());
+	}
+};
+
 
 //Tests by M. Tyshchenko
 TEST_CASE("Special Exponent Test") {
@@ -271,4 +317,17 @@ TEST_CASE("Special Exponent Test") {
 	executor.executeAll();
 }
 
+//Tests by M. Tyshchenko
+TEST_CASE("Special Exponent Test") {
+	BasicOperationTestExecutor executor;
+	executor.readTestData();
+	executor.executeAll();
+}
+
+//Tests by M. Tyshchenko
+TEST_CASE("Special Exponent Test") {
+	InverseNumberTestExecutor executor;
+	executor.readTestData();
+	executor.executeAll();
+}
 

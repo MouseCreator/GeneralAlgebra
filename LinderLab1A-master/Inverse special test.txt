@@ -1,0 +1,4 @@
+modulo 17
+5 => 7, AUTO, PRINT
+3 => 6, AUTO, PRINT
+16 => 16, AUTO, PRINT
