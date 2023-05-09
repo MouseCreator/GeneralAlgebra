@@ -224,7 +224,7 @@ public:
 		TestExecutor::setPrintable(v);
 	}
 };
-
+//input: operation {+ - * /}, operand1, operand2 => result
 class BasicOperationTestExecutor : TestExecutor {
 private:
 	void print(TestData testData, std::string result) {
@@ -270,6 +270,7 @@ public:
 	}
 };
 
+//input: param => result
 class InverseNumberTestExecutor : TestExecutor {
 private:
 	void autoCheck(std::string expected, TestData testData) {
