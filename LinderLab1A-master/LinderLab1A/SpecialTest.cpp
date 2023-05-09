@@ -47,7 +47,7 @@ protected:
 	std::vector<TestData> tests;
 	FiniteField field;
 	std::string sourceFile;
-	bool noPrint = true;
+	bool noPrint = false;
 
 	void processResult(TestData testData, std::string result) {
 
@@ -220,6 +220,9 @@ public:
 	void execute(std::size_t testNumber) {
 		TestExecutor::execute(testNumber);
 	}
+	void setPrintable(bool v) {
+		TestExecutor::setPrintable(v);
+	}
 };
 
 class BasicOperationTestExecutor : TestExecutor {
@@ -262,6 +265,9 @@ public:
 		}
 		return processResult(testData, result.toString());
 	}
+	void setPrintable(bool v) {
+		TestExecutor::setPrintable(v);
+	}
 };
 
 class InverseNumberTestExecutor : TestExecutor {
@@ -300,34 +306,37 @@ public:
 		FiniteNumber result = operand1.inverse();
 		return processResult(testData, result.toString());
 	}
+	void setPrintable(bool v) {
+		TestExecutor::setPrintable(v);
+	}
 };
 
+TEST_SUITE("Special") {
 
-//Tests by M. Tyshchenko
-TEST_CASE("Special Exponent Test") {
-	ExponentTestExecutor executor;
-	executor.readTestData();
-	executor.executeAll();
-}
+	bool printResult = false;
 
-//Tests by M. Tyshchenko
-TEST_CASE("Special Exponent Test") {
-	BasicOperationTestExecutor executor;
-	executor.readTestData();
-	executor.executeAll();
-}
+	//Tests by M. Tyshchenko
+	TEST_CASE("Special Exponent Test") {
+		ExponentTestExecutor executor;
+		executor.setPrintable(printResult);
+		executor.readTestData();
+		executor.executeAll();
+	}
 
-//Tests by M. Tyshchenko
-TEST_CASE("Special Exponent Test") {
-	BasicOperationTestExecutor executor;
-	executor.readTestData();
-	executor.executeAll();
-}
+	//Tests by M. Tyshchenko
+	TEST_CASE("Special Basic Operation Test") {
+		BasicOperationTestExecutor executor;
+		executor.setPrintable(printResult);
+		executor.readTestData();
+		executor.executeAll();
+	}
 
-//Tests by M. Tyshchenko
-TEST_CASE("Special Exponent Test") {
-	InverseNumberTestExecutor executor;
-	executor.readTestData();
-	executor.executeAll();
+	//Tests by M. Tyshchenko
+	TEST_CASE("Special Inverse Number Test") {
+		InverseNumberTestExecutor executor;
+		executor.setPrintable(printResult);
+		executor.readTestData();
+		executor.executeAll();
+	}
 }
 
